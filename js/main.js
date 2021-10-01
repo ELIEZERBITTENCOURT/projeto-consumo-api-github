@@ -1,15 +1,18 @@
+//retorna os seletores dentro do documento
 formElement = document.querySelector('#searchForm');
 inputElement = document.querySelector('#txtUser');
 divUserImageElement = document.querySelector('#userImage');
 divUserElement = document.querySelector('#user');
 rightElement = document.querySelector('#rightSide');
 
+//cancela o evento se dado for inválido
 formElement.onsubmit = function(event) {
     event.preventDefault();
     
     mostrarUsuario();
 }
 
+//busca usuario e mostra
 async function mostrarUsuario() {
     var username = inputElement.value;
     
@@ -18,7 +21,7 @@ async function mostrarUsuario() {
         inputElement.value = '';
         return; 
     }
-
+    //retorna o usuario
     try {
         const usuario = await axios.get(`https://api.github.com/users/${username}`);
         getUserData(usuario);
@@ -30,7 +33,7 @@ async function mostrarUsuario() {
         listElement.innerHTML = '';
         return;
     }
-
+    //retorna os repositorios
     try {
         const repositorios = await axios.get(`https://api.github.com/users/${username}/repos`)
         rightElement.innerHTML = '<h2>Repositórios</h2>';
@@ -49,7 +52,7 @@ async function mostrarUsuario() {
         alert(error);
     }
 }
-
+//cria tags no index html
 function getUserData(response) {
     divUserImageElement.innerHTML = '';
     divUserElement.innerHTML = '';
@@ -78,3 +81,4 @@ function getUserData(response) {
     divUserElement.appendChild(listBio);
     inputElement.value = '';
 }
+

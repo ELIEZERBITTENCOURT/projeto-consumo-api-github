@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  
       <header>
         <form id="searchForm"> 
             <input id="txtUser" placeholder="Insira o nome de usuário">
         </form>
     </header>
+    <!--div container que irá receber dados da API-->
     <div class="container">
         <div class="row row-cols-12">
           <div class="main">
@@ -25,9 +27,16 @@
             <div id="rightSide" class="rightSide"></div>
         </div>
       </div>
-    
+      <!--fim da div container-->
+
+    <!--Início dos scripts-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
+    <!--fim dos scripts-->
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+      </script>
+      
 </body>
 </html>
